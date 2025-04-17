@@ -1285,6 +1285,24 @@
 	height: 50px;
 	margin-top: -33px;
 }
+.bar_c38106 .title_c38106 {
+	text-align: start;
+	display: block;
+	position: absolute;
+	margin-bottom: 30px;
+	background-repeat: no-repeat;
+	transform: translateY(40px) translateX(14px) scale(1.01);
+	width: 52px;
+	.text-sm\/medium_cf4812 {
+		display: none;
+	}
+	svg {
+		display: none;
+	}
+	.guildIcon__85643 {
+		display: none;
+	}
+}
 .bar_c38106 .trailing_c38106 {
 	top: 51px;
 	gap: 8px;
