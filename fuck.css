@@ -62,7 +62,7 @@ html:is(.theme-darker, .theme-midnight, .custom-theme-background)
 		grid-template-areas: "titleBar titleBar titleBar" "notice notice notice" "guildsList channelsList page";
 		grid-template-rows: [top] 0px [titlebarEnd] min-content [page] 0px [end] !important;
 	}
-	.bar_c38106 .title_c38106 {
+	.bar_c38106 .title_c38106 { 
 		display: none;
 	}
 	.bar_c38106 .trailing_c38106 {
