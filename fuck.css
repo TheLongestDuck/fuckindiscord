@@ -1,22 +1,10 @@
-	
-	.theme-light:not(html.custom-theme-background, :has(#clientThemeVars)){
-		--bg-brand: var(--blurple);
-			--background-base-low: var(--background-primary);
-		--background-base-lower: var(--background-primary);
-		--background-base-lowest: var(--background-secondary);
-		--background-surface-highest: var(--background-primary);
-		--background-surface-higher: var(--background-floating);
-		--bg-base-tertiary: var(--background-tertiary);
-		--custom-channel-members-bg: var(--background-secondary);
-		--background-mod-subtle: var(--background-modifier-hover);
-	
-	
-	}.theme-dark:not(html.custom-theme-background, :has(#clientThemeVars)) {
+
+.theme-dark:not(html.custom-theme-background, :has(#clientThemeVars)) {
 		--background-base-low: var(--background-primary);
 		--background-base-lower: var(--background-primary);
 		--background-base-lowest: var(--background-secondary);
 		--background-surface-highest: var(--background-primary);
-		--background-surface-higher: var(--background-floating);
+		--background-surface-higher: var(--background-floating, var(--background-tertiary));
 		--bg-base-tertiary: var(--background-tertiary);
 		--custom-channel-members-bg: var(--background-secondary);
 		--background-mod-subtle: var(--background-modifier-hover);
@@ -36,6 +24,7 @@
 	}
 	
 	.theme-darker {
+		--header-secondary: color-mix(in oklab,var(--neutral-5) 70%,var(--theme-text-color,#000) var(--theme-text-color-amount,0%)) !important;
 		--background-secondary-alt: color-mix(in oklab, var(--neutral-86) 30%, var(--theme-base-color, #000) var(--theme-base-color-amount, 0%));
 		--chat-background-default: hsl(218 4% 18% / 1) !important;
 	}
@@ -89,19 +78,22 @@
 		.sidebar_c48ade > .guilds_c48ade {
 			margin-top: 32px;
 		}
+		.bar_c38106 {
+			pointer-events: none;
+		}
 		.bar_c38106 .trailing_c38106 {
-			top: 67px;
+			top: 32px;
 		}
 		.notice__6e2b9,
 		#bd-notices {
-			margin-top: 22px;
-			margin-bottom: -27px;
+			margin-top: 0;
+			margin-bottom: -38px;
 		}
 		&:has(.notice__6e2b9, .bd-notice) .trailing_c38106 {
-			top: 94px !important;
+			top: 70px !important;
 		}
 		&:has(.notice__6e2b9, .bd-notice) :is(.sidebarList_c48ade, .page_c48ade) {
-			margin-top: 27px !important;
+			margin-top: 38px !important;
 		}
 	}
 	.platform-osx .systemBar_c38106 {
@@ -459,6 +451,7 @@
 		}
 		.root__49fc1 {
 			border: none;
+			outline: none;
 		}
 		.rootWithShadow__49fc1 {
 			box-shadow: var(--legacy-elevation-border), var(--legacy-elevation-high);
@@ -934,7 +927,8 @@
 				.lineClamp1__4bd52,
 				.searchFilter_bd8186,
 				.searchAnswer_bd8186
-			) {
+			),
+			.text-xs\/bold_cf4812 {
 			text-transform: uppercase;
 			font-size: 12px;
 			line-height: 16px;
@@ -1266,15 +1260,15 @@
 	
 		/* ping icon */
 		.lowerBadge_cc5dd2 {
-			border: 5px solid var(--background-floating);
+			border: 5px solid var(--background-tertiary);
 			border-radius: 50%;
 			margin-bottom: -5px;
 			margin-right: -5px;
 		}
 		.upperBadge_cc5dd2{
-			background: var(--background-floating);	width: 24px; height: 24px;
+			background: var(--background-tertiary);	width: 24px; height: 24px;
 			position: relative;
-			border-radius: 9999px;
+			border-radius: 50%;
 			left: 28px;	
 			&>.iconBadge__650eb{
 				top: 4px; left: 4px; position: absolute
@@ -1733,6 +1727,23 @@
 			width: 240px;
 			aspect-ratio: unset;
 		}
+
+		/* tooltips */
+		.tooltipPrimary__382e7, .reactionTooltip_b49891 {
+			background: var(--background-surface-higher)
+		}
+		.tooltipPrimary__382e7 .tooltipPointer__382e7 {
+		    border-top-color: var(--background-surface-higher);
+		}
+		.tooltipPointer__382e7.tooltipPointerBg__382e7:after,
+		.tooltipPointer__382e7.tooltipPointerBg__382e7:before {
+			border-top: unset;
+		}
+
+		.popout__76f04, .container__4e30a {
+			background: var(--background-surface-higher);
+			border-radius: 4px;
+		}
 	}
 	
 	:where(.visual-refresh) .item__001a7,
@@ -1771,16 +1782,15 @@
 		z-index: 102;
 	}
 	.bar_c38106 .channelTabs-trailing .trailing_c38106 {
-		top: 44px;
+		top: 36px;
 		right: 10px;
 	}
 	.channelTabs-trailing .winButtons_c38106 {
 		position: absolute;
-		top: -53px;
+		top: -42px;
 		right: 6px;
 		& .winButton_c38106 {
-			width: var(--custom-app-top-bar-height);
-			height: var(--custom-app-top-bar-height);
+			height: calc(var(--custom-app-top-bar-height) + 4px);
 			padding-left: 10px;
 			padding-right: 10px;
 		}
@@ -1788,8 +1798,9 @@
 	#channelTabs-settingsMenu {
 		position: relative;
 		right: 20px;
+    top: -2px;
 	}
-	.container__01ae2 > .container__9293f {
+	:is(.container__01ae2, .container_fb64c9) > .container__9293f {
 		z-index: 102;
 	}
 	.bar_c38106 .trailing_c38106 .iconWrapper__9293f {
@@ -1836,10 +1847,9 @@
 		z-index: 3001;
 		-webkit-app-region: no-drag !important;
 		.winButton_c38106 {
-			top: -4px;
 			align-items: center;
 			width: 28px;
-			height: 22px;
+			height: 23px;
 		}
 	}
 	.winButtonsWithDivider_c38106:before {
@@ -1868,6 +1878,9 @@
 			ul.stack_dbd263 {
 				height: auto !important;
 			}
+		}
+		#guild-list-unread-dms:has(.listItem__650eb){
+			 padding-top: 8px !important;
 		}
 		.listItem__650eb:has(.guildSeparator__252b6) {
 			margin: 6px 0 8px 0;
