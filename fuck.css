@@ -1,4 +1,3 @@
-
 .theme-dark:not(html.custom-theme-background, :has(#clientThemeVars)) {
 		--background-base-low: var(--background-primary);
 		--background-base-lower: var(--background-primary);
@@ -8,7 +7,7 @@
 		--bg-base-tertiary: var(--background-tertiary);
 		--custom-channel-members-bg: var(--background-secondary);
 		--background-mod-subtle: var(--background-modifier-hover);
-		--bg-brand: var(--blurple);
+		--bg-brand: var(--blurple, var(--blurple-50));
 		--modal-footer-background: color-mix(in oklab, var(--primary-630) 100%, var(--theme-base-color, #000) var(--theme-base-color-amount, 0%));
 		--checkbox-background-checked: var(--blurple);
 		--text-normal: color-mix(in oklab, var(--primary-230) 100%, var(--theme-text-color, #000) var(--theme-text-color-amount, 0%));
@@ -418,7 +417,7 @@
 			color: var(--interactive-normal);
 		}
 		.popoutContainer__0f481 {
-			background-color: var(--background-floating);
+			background-color: var(--background-surface-higher);
 			box-shadow: var(--elevation-low);
 			-webkit-backdrop-filter: unset;
 			backdrop-filter: unset;
@@ -1493,6 +1492,18 @@
 			width: 200px;
 			transform: scale(1.4) translateX(-9px);
 		}
+		.art__29209 {
+			background-image: url(https://discord.com/assets/4b9c3419c57d838c4076abc9d34dbea7.svg) !important;
+		}
+		.tile__90dc5 {
+			background-color: unset;
+		}
+		.container__29209 {
+			background: none;
+			button {
+				background: var(--background-floating);
+			}
+		}
 	
 		/* voice panel */
 		.container_e131a9 {
@@ -1729,7 +1740,7 @@
 		}
 
 		/* tooltips */
-		.tooltipPrimary__382e7, .reactionTooltip_b49891 {
+		.tooltipPrimary__382e7, .reactionTooltip_b49891, .container__50387 {
 			background: var(--background-surface-higher)
 		}
 		.tooltipPrimary__382e7 .tooltipPointer__382e7 {
@@ -1780,6 +1791,12 @@
 		top: 51px;
 		gap: 8px;
 		z-index: 102;
+	}
+	.bar_c38106 .trailing_c38106:has(> .clickable__9293f) {
+		top: 51px;
+		gap: 8px;
+		z-index: 102;
+		margin-right: -38px;
 	}
 	.bar_c38106 .channelTabs-trailing .trailing_c38106 {
 		top: 36px;
@@ -1900,6 +1917,9 @@
 			}
 		}
 	}
+	.base_c48ade .sidebar_c48ade > .wrapper_ef3116 {
+		background: var(--bg-base-tertiary)
+	}
 	.folderGroup__48112 {
 		--custom-folder-preview-padding: 6px;
 		--custom-folder-color: #7289da;
@@ -1978,4 +1998,8 @@
 	
 	.spriteContainer__04eed {
 		--custom-emoji-sprite-size: 24px !important;
+	}
+
+	.layer__960e4.baseLayer__960e4 {
+	    background-color: var(--bg-base-tertiary);
 	}
