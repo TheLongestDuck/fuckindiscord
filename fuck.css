@@ -366,6 +366,9 @@ html.visual-refresh {
 	}
 	.buttons__37e49 {
 		gap: 1px;
+		.buttonChevron__37e49 {
+			display: none;
+		}
 	}
 
 	.wrapper_cc5dd2,
@@ -528,6 +531,9 @@ html.visual-refresh {
 		margin: 0 -1px;
 		padding: 12px;
 		border-bottom: unset;
+		.sizeMedium__201d5 {
+			display: none;
+		}
 	}
 
 	.clickable__9293f .icon__9293f {
@@ -784,7 +790,7 @@ html.visual-refresh {
 	.root__49fc1,
 	.container_e45859,
 	.searchBar__5ec2f,
-	.tooltip__382e7,
+	.tooltip_c36707,
 	.link__2ea32,
 	.container_a45028,
 	.container__91a9d,
@@ -1082,10 +1088,10 @@ html.visual-refresh {
 		font-family: var(--font-display);
 		font-weight: 800;
 	}
-	.h5_b717a1:not(.isEnabled__2666b) {
+	.h5_b717a1:not(.isEnabled__2666b), .container__5a838[data-layout="vertical"] .label__5a838, .fieldTitle__1fed1 {
 		color: var(--header-secondary);
 	}
-	.eyebrow_b717a1 {
+	.eyebrow_b717a1, .container__5a838[data-layout="vertical"] .label__5a838, .fieldTitle__1fed1 {
 		font-family: var(--font-display);
 		font-size: 12px;
 		line-height: 1.3333333333333333;
@@ -1300,13 +1306,15 @@ html.visual-refresh {
 		}
 	}
 
-	/* jump to present bar */
-	.jumpToPresentBar__0f481 {
-		bottom: 12px;
+	/* jump to present bar & failed to load bar */
+	.jumpToPresentBar__0f481, .messagesErrorBar__0f481 {
+		bottom: 6px;
+		padding-bottom: 4px !important;
 		border-radius: 8px 8px 0 0;
+	}
+	.jumpToPresentBar__0f481 {
 		background-color: var(--background-accent);
 		opacity: 0.95 !important;
-		padding-bottom: 4px !important;
 		color: var(--white-500);
 		.barButtonBase__0f481 {
 			padding-left: unset;
@@ -1898,16 +1906,16 @@ html.visual-refresh {
 	}
 
 	/* tooltips */
-	.tooltipPrimary__382e7,
+	.tooltipPrimary_c36707,
 	.reactionTooltip_b49891,
 	.container__50387 {
 		background: var(--background-surface-higher);
 	}
-	.tooltipPrimary__382e7 .tooltipPointer__382e7 {
+	.tooltipPrimary_c36707 .tooltipPointer_c36707 {
 		border-top-color: var(--background-surface-higher);
 	}
-	.tooltipPointer__382e7.tooltipPointerBg__382e7:after,
-	.tooltipPointer__382e7.tooltipPointerBg__382e7:before {
+	.tooltipPointer_c36707.tooltipPointerBg_c36707:after,
+	.tooltipPointer_c36707.tooltipPointerBg_c36707:before {
 		border-top: unset;
 	}
 
