@@ -28,6 +28,19 @@ html:not(.custom-theme-background).theme-dark {
 	--background-surface-higher: var(--background-floating, var(--background-tertiary)) !important;
 	--text-default: color-mix(in oklab, var(--primary-230) 100%, var(--theme-text-color, #000) var(--theme-text-color-amount, 0%));
 }
+html:not(.custom-theme-background).theme-light,
+html:not(.custom-theme-background) .theme-light{
+	--background-base-low: var(--background-primary) !important;
+	--background-base-lower: var(--background-primary) !important;
+	--background-base-lowest: var(--background-secondary) !important;
+	--custom-channel-members-bg: var(--background-secondary) !important;
+	--background-surface-highest: var(--background-primary) !important;
+	--background-surface-higher: var(--background-floating, var(--background-tertiary)) !important;
+	--background-floating: #fff;
+	--button-secondary: hsl(0deg 0% 0% / 10%);
+	--button-secondary-hover: hsl(0deg 0% 0% / 17%);
+	
+}
 html.theme-darker,
 html.theme-midnight{
 	--button-secondary: hsl(220deg 100% 90% / 20%);
@@ -96,10 +109,11 @@ html.theme-dark:not(.theme-darker, .theme-midnight, .custom-theme-background) .i
 	color: var(--channels-default);
 }
 
+
 /* remove the title bar on web & linux */
 html.platform-web:not(html[data-dorion-platform="linux"]),
 html.platform-linux {
-	.base_c48ade {
+	.base__5e434 {
 		grid-template-areas: "titleBar titleBar titleBar" "notice notice notice" "guildsList channelsList page";
 		grid-template-rows: [top] 0px [titlebarEnd] min-content [page] 0px [end] !important;
 	}
@@ -119,7 +133,7 @@ html.platform-linux {
 	#bd-notices {
 		margin-top: 0px !important;
 	}
-	.base_c48ade:has(.notice__6e2b9, .bd-notice) .bar_c38106 .trailing_c38106 {
+	.base__5e434:has(.notice__6e2b9, .bd-notice) .bar_c38106 .trailing_c38106 {
 		top: 69px !important;
 	}
 }
@@ -130,13 +144,13 @@ html[data-dorion-platform="linux"] {
 	}
 }
 /* platform-specific fixes */
-html.platform-osx .base_c48ade {
+html.platform-osx .base__5e434 {
 	grid-template-areas:
 		"titleBar titleBar titleBar"
 		"notice notice notice"
 		"guildsList channelsList page";
 	grid-template-rows: [top] 0px [titlebarEnd] min-content [page] 0px [end] !important;
-	.sidebar_c48ade > .guilds_c48ade {
+	.sidebar__5e434 > .guilds__5e434 {
 		margin-top: 32px;
 	}
 	.title_c38106,
@@ -154,20 +168,20 @@ html.platform-osx .base_c48ade {
 	&:has(.notice__6e2b9, .bd-notice) .trailing_c38106 {
 		top: 70px !important;
 	}
-	&:has(.notice__6e2b9, .bd-notice) :is(.sidebarList_c48ade, .page_c48ade) {
+	&:has(.notice__6e2b9, .bd-notice) :is(.sidebarList__5e434, .page__5e434) {
 		margin-top: 38px !important;
 	}
 }
 html.platform-osx .systemBar_c38106 {
 	background: none;
 }
-html.platform-win .sidebarListRounded_c48ade {
+html.platform-win .sidebarListRounded__5e434 {
 	border-top-left-radius: 8px !important;
 }
 html.platform-win .trailing_c38106 :is(.recentsIcon_c99c29, .anchor_edefb8) {
 	transform: translateY(3px);
 }
-html.platform-win .container_c48ade:has(.notice__6e2b9, .bd-notice) .sidebarListRounded_c48ade {
+html.platform-win .container__5e434:has(.notice__6e2b9, .bd-notice) .sidebarListRounded__5e434 {
 	border-top-left-radius: unset !important;
 }
 html.platform-osx .title_c38106 {
@@ -252,15 +266,15 @@ html.visual-refresh {
 	.childWrapperNoHoverBg__6e9f8 {
 		background-color: var(--background-mod-strong);
 	}
-	.sidebarListRounded_c48ade {
+	.sidebarListRounded__5e434 {
 		border-top-left-radius: unset;
 	}
 	/*weird line on the bottom*/
-	.sidebar_c48ade:after {
+	.sidebar__5e434:after {
 		display: none;
 	}
 
-	.panels_c48ade {
+	.panels__5e434 {
 		display: flex;
 		width: 240px;
 		flex-direction: column;
@@ -367,7 +381,11 @@ html.visual-refresh {
 	.buttons__37e49 {
 		gap: 1px;
 		.buttonChevron__37e49 {
-			display: none;
+			margin: 0;
+		}
+		/*hide arrows when there's an extra button (like a game activity toggle plugin)*/
+		&:has(>:nth-child(6)) .buttonChevron__37e49 {
+			display: none
 		}
 	}
 
@@ -807,7 +825,7 @@ html.visual-refresh {
 		&:not(.card__39ec2 .button_fb7f94, .critical-secondary_a22cb0, .secondary_a22cb0, .customButton__39ec2, .themeColor_fb7f94) {
 			border: none !important;
 		}
-		.panels_c48ade & {
+		.panels__5e434 & {
 			background: none;
 			&.buttonColor_e131a9:hover {
 				background: var(--button-secondary) !important;
@@ -926,14 +944,14 @@ html.visual-refresh {
 		margin-right: 4px;
 	}
 
-	.base_c48ade {
+	.base__5e434 {
 		grid-template-areas:
 			"titleBar titleBar titleBar"
 			"notice notice notice"
 			"guildsList channelsList page";
 		grid-template-rows: [top] 0px [titlebarEnd] min-content [page] 22px [end];
 	}
-	.base_c48ade .sidebar_c48ade {
+	.base__5e434 .sidebar__5e434 {
 		display: grid;
 		grid-template-areas: "guilds sidebar" "guilds panels";
 		grid-template-columns: [start] min-content [sidebarStart] unset [end];
@@ -942,48 +960,48 @@ html.visual-refresh {
 	}
 	&:not(.theme-midnight) .chat_f75fb0,
 	&:not(.theme-midnight) .container__133bf,
-	&:not(.theme-midnight) :is(.content_f75fb0, .subtitleContainer_f75fb0, .sidebarList_c48ade, .container_c8ffbb) {
+	&:not(.theme-midnight) :is(.content_f75fb0, .subtitleContainer_f75fb0, .sidebarList__5e434, .container_c8ffbb) {
 		border: none !important;
 	}
-	.base_c48ade .sidebar_c48ade > .guilds_c48ade {
+	.base__5e434 .sidebar__5e434 > .guilds__5e434 {
 		grid-area: guilds;
 		margin-bottom: 0;
 	}
-	.base_c48ade .sidebar_c48ade > .sidebarList_c48ade {
+	.base__5e434 .sidebar__5e434 > .sidebarList__5e434 {
 		grid-area: sidebar;
 		width: 240px;
 		--custom-app-panels-height: 0;
 	}
-	.base_c48ade .sidebar_c48ade > .sidebarResizeHandle_c48ade,
-	:root .base_c48ade .sidebar_c48ade:after {
+	.base__5e434 .sidebar__5e434 > .sidebarResizeHandle__5e434,
+	:root .base__5e434 .sidebar__5e434:after {
 		display: none;
 	}
 
 	/*Betterfolders (vencord)*/
-	.base_c48ade.vc-betterFolders-sidebar-grid {
-		grid-template-columns: [start] 100px [guilds-end] min-content [betterFoldersSidebar-end] auto [channelsEnd] 0 [end];
+	.base__5e434.vc-betterFolders-sidebar-grid {
+		grid-template-columns: [start] 100px [guilds-end] min-content [betterFoldersSidebar-end] auto [channelsEnd] 1fr [end];
 		grid-template-areas: "titleBar titleBar titleBar titleBar" "guildsList betterFoldersSidebar notice notice" "guildsList betterFoldersSidebar channelsList page";
 	}
-	.base_c48ade.vc-betterFolders-sidebar-grid .sidebar_c48ade {
+	.base__5e434.vc-betterFolders-sidebar-grid .sidebar__5e434 {
 		grid-template-columns: [start] 70px [guilds-end] min-content [betterFoldersSidebar-end] 240px [end];
 		grid-template-areas: "guilds betterFoldersSidebar sidebar" "guilds betterFoldersSidebar panels";
 		width: auto !important;
 	}
 	/* ServerFolders (betterdiscord) */
-	.folderContentIsOpen_ac0584 .base_c48ade {
+	.folderContentIsOpen_ac0584 .base__5e434 {
 		grid-template-areas:
 			"titleBar titleBar titleBar titleBar"
 			"notice notice notice notice"
 			"guildsList guildsList channelsList page";
 		grid-template-columns: [start] min-content [guildsEnd] min-content [guildsEnd] min-content [channelsEnd] 1fr [end];
 	}
-	.folderContentIsOpen_ac0584 .base_c48ade .sidebar_c48ade {
+	.folderContentIsOpen_ac0584 .base__5e434 .sidebar__5e434 {
 		grid-template-areas:
 			"guilds guildsFolderList sidebar"
 			"guilds guildsFolderList panels";
 	}
 	/* user panel */
-	.base_c48ade .sidebar_c48ade > .panels_c48ade {
+	.base__5e434 .sidebar__5e434 > .panels__5e434 {
 		grid-area: panels;
 		position: static;
 		inset: auto;
@@ -1063,7 +1081,7 @@ html.visual-refresh {
 		background-color: var(--background-modifier-hover);
 	}
 
-	.base_c48ade
+	.base__5e434
 		.text-sm\/medium__13cf1:not(
 			.title_b6c092,
 			.text_c9d15c,
@@ -1705,21 +1723,22 @@ html.visual-refresh {
 		margin-bottom: -38px;
 		grid-area: channelsList / channelsList / channelsList / page;
 	}
-	.base_c48ade:has(.notice__6e2b9, .bd-notice) .trailing_c38106 {
+	.base__5e434:has(.notice__6e2b9, .bd-notice) .trailing_c38106 {
 		top: 89px;
 		.winButtons_c38106 {
 			bottom: 73px;
 		}
 	}
-	.base_c48ade:has(.notice__6e2b9, .bd-notice) :is(.sidebarList_c48ade, .page_c48ade) {
+	.base__5e434:has(.notice__6e2b9, .bd-notice) :is(.sidebarList__5e434, .page__5e434) {
 		margin-top: 37px;
 	}
-	.page_c48ade {
+	.page__5e434 {
 		height: auto;
 	}
 
 	.section__00943 {
-		background: #2f3136;
+		background: var(--background-secondary);
+		border: none
 	}
 
 	/* polls */
@@ -1942,9 +1961,14 @@ html.visual-refresh {
 				color: var(--header-primary);
 			}
 		}
+				&:not(:has(img)) .content__44df5:before {
 		.content__44df5:before {
-			content: url(https://discord.com/assets/dc7e9e55b3a6d39d24acdd650ecc2ef3.svg);
-			transform: scale(0.65);
+ 			content: url(https://discord.com/assets/dc7e9e55b3a6d39d24acdd650ecc2ef3.svg);
+ 			transform: scale(0.65);
+ 		}
+ 		}
+		.image__44df5 {
+			margin-left: 5px;
 		}
 	}
 
@@ -2274,7 +2298,7 @@ html.visual-refresh {
 	top: -2px;
 }
 :is(.container__01ae2, .container_fb64c9) > .container__9293f,
-.page_c48ade .container__01ae2 {
+.page__5e434 .container__01ae2 {
 	z-index: 102;
 }
 .bar_c38106 .trailing_c38106 .iconWrapper__9293f {
@@ -2332,6 +2356,7 @@ html .bar_c38106 {
 .systemBar_c38106 {
 	background-color: var(--background-tertiary);
 	min-height: 22px;
+	z-index: 999999 !important;
 	.winButtons_c38106 {
 		bottom: 39px;
 		left: -84px;
@@ -2344,12 +2369,12 @@ html .bar_c38106 {
 	margin-bottom: 0 !important;
 }*/
 /* server list */
-.base_c48ade .sidebar_c48ade > .guilds_c48ade {
+.base__5e434 .sidebar__5e434 > .guilds__5e434 {
 	width: 72px;
 	.scroller_ef3116 {
 		padding-top: 2px;
 		gap: 0px !important;
-		ul.stack_dbd263 {
+		.isExpanded__48112 ul.stack_dbd263 {
 			height: auto !important;
 		}
 	}
@@ -2374,7 +2399,7 @@ html .bar_c38106 {
 		}
 	}
 }
-.base_c48ade .sidebar_c48ade > .wrapper_ef3116 {
+.base__5e434 .sidebar__5e434 > .wrapper_ef3116 {
 	background: var(--bg-base-tertiary);
 }
 .folderGroup__48112 {
@@ -2440,7 +2465,7 @@ html .bar_c38106 {
 	right: 1px;
 }
 
-.sidebar_c48ade:after {
+.sidebar__5e434:after {
 	display: none;
 }
 
@@ -2451,8 +2476,8 @@ html .bar_c38106 {
 }
 
 /* hides left sidebar when fullscreen mode */
-.base_c48ade[data-fullscreen="true"] {
-	.sidebar_c48ade {
+.base__5e434[data-fullscreen="true"] {
+	.sidebar__5e434 {
 		display: none !important;
 	}
 }
@@ -2489,4 +2514,95 @@ html .bar_c38106 {
 }
 #app-mount .emojiRow_e7d73e:before {
 	display: none;
+}
+
+
+/*new settings*/
+.container__8a031[data-mana-component="layer-modal"] {
+	border: none;
+	max-width: 1080px !important;
+	.panel__6131a {
+		margin: unset;
+	}
+	.content_e9e3ed {
+		gap: var(--space-12)
+	}
+	.contentHeader_e9e3ed {
+		border: unset;
+		padding: 0 var(--space-24) 0 var(--space-30);
+		h1 {
+			text-transform: uppercase;
+			font-weight: 600;
+			color: var(--header-primary) !important;
+		}
+	}
+	[data-text-variant="heading-lg/semibold"], legend, .debugTitle_bc4a3e {
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--header-secondary) !important;
+	}
+	.contentHeader_e9e3ed .buttonChildren_a22cb0 {
+		align-items: center;
+	    border-radius: 50%;
+	    border-style: solid;
+	    border-width: 3px;
+	    cursor: pointer;
+	    display: flex;
+	    flex: 0 0 36px;
+	    height: 36px;
+	    justify-content: center;
+	    width: 36px;
+	}
+	.contentHeader_e9e3ed .icon-only_a22cb0 {
+		align-self: end;
+		border-radius: 50%;
+		width: 42px;
+		height: 40px;
+		.buttonChildrenWrapper_a22cb0 {
+			min-width: 42px;
+			min-height: 40px;
+		}
+	}
+	.contentHeader_e9e3ed .icon-only_a22cb0:after {
+		position: absolute;
+		content: "ESC";
+		top: 43px;
+		color: #72767d;
+		font-size: 13px;
+		font-weight: var(--font-weight-semibold)
+	}
+}
+
+.sidebar__409aa{
+	background: var(--background-secondary);
+	border: none !important;
+	& h1 {
+		text-transform:uppercase;
+		font-weight: 700;
+		font-size: 12px;
+	    letter-spacing: .02em;
+	    line-height: 1.3333333333333333;
+		padding: 6px 10px;
+		margin: 0;
+		color: var(--channels-default) !important;
+	}	
+}
+html.density-default .item_caf372{
+	border-radius: 4px;
+	padding: 7px 10px;
+	&:active{
+		background: var(--background-modifier-active)
+	}
+	&.active_caf372{
+		transition: none
+	}
+}
+.fixedContent__409aa:after{
+    background: linear-gradient(to bottom,var(--background-secondary),transparent);
+}
+@container outer-container (max-width: 1080px) {
+    .modal_e44912 {
+		padding-top: 21px;
+	}
 }
